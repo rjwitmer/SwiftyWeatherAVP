@@ -8,33 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		CC381CA82E6FA66700F8E864 /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = CC381CA72E6FA66700F8E864 /* RealityKitContent */; };
+		CC381CBB2E6FADD200F8E864 /* SwiftyWeatherAVPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC381CB82E6FADD200F8E864 /* SwiftyWeatherAVPApp.swift */; };
+		CC381CBC2E6FADD200F8E864 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC381CB92E6FADD200F8E864 /* WeatherView.swift */; };
+		CC381CBD2E6FADD200F8E864 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC381CB62E6FADD200F8E864 /* Assets.xcassets */; };
+		CC381CC02E6FB75E00F8E864 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC381CBF2E6FB75E00F8E864 /* WeatherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CC381CA22E6FA66700F8E864 /* SwiftyWeatherAVP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyWeatherAVP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC381CA62E6FA66700F8E864 /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
+		CC381CB62E6FADD200F8E864 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CC381CB72E6FADD200F8E864 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CC381CB82E6FADD200F8E864 /* SwiftyWeatherAVPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyWeatherAVPApp.swift; sourceTree = "<group>"; };
+		CC381CB92E6FADD200F8E864 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		CC381CBF2E6FB75E00F8E864 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		CC381CB02E6FA66800F8E864 /* Exceptions for "SwiftyWeatherAVP" folder in "SwiftyWeatherAVP" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = CC381CA12E6FA66700F8E864 /* SwiftyWeatherAVP */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		CC381CA42E6FA66700F8E864 /* SwiftyWeatherAVP */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				CC381CB02E6FA66800F8E864 /* Exceptions for "SwiftyWeatherAVP" folder in "SwiftyWeatherAVP" target */,
-			);
-			path = SwiftyWeatherAVP;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CC381C9F2E6FA66700F8E864 /* Frameworks */ = {
@@ -51,7 +39,7 @@
 		CC381C992E6FA66700F8E864 = {
 			isa = PBXGroup;
 			children = (
-				CC381CA42E6FA66700F8E864 /* SwiftyWeatherAVP */,
+				CC381CBA2E6FADD200F8E864 /* SwiftyWeatherAVP */,
 				CC381CA52E6FA66700F8E864 /* Packages */,
 				CC381CA32E6FA66700F8E864 /* Products */,
 			);
@@ -73,6 +61,26 @@
 			path = Packages;
 			sourceTree = "<group>";
 		};
+		CC381CBA2E6FADD200F8E864 /* SwiftyWeatherAVP */ = {
+			isa = PBXGroup;
+			children = (
+				CC381CB82E6FADD200F8E864 /* SwiftyWeatherAVPApp.swift */,
+				CC381CB92E6FADD200F8E864 /* WeatherView.swift */,
+				CC381CC12E6FB76D00F8E864 /* ViewModels */,
+				CC381CB62E6FADD200F8E864 /* Assets.xcassets */,
+				CC381CB72E6FADD200F8E864 /* Info.plist */,
+			);
+			path = SwiftyWeatherAVP;
+			sourceTree = "<group>";
+		};
+		CC381CC12E6FB76D00F8E864 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CC381CBF2E6FB75E00F8E864 /* WeatherViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -87,9 +95,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				CC381CA42E6FA66700F8E864 /* SwiftyWeatherAVP */,
 			);
 			name = SwiftyWeatherAVP;
 			packageProductDependencies = (
@@ -138,6 +143,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC381CBD2E6FADD200F8E864 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +154,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC381CBB2E6FADD200F8E864 /* SwiftyWeatherAVPApp.swift in Sources */,
+				CC381CC02E6FB75E00F8E864 /* WeatherViewModel.swift in Sources */,
+				CC381CBC2E6FADD200F8E864 /* WeatherView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
