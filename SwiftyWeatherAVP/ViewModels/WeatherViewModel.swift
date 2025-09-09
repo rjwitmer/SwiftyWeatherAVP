@@ -11,6 +11,7 @@ import Foundation
 class WeatherViewModel {
     struct ReturnValues: Codable {
         var current: Current
+        var daily: Daily
     }
     
     struct Current: Codable {
@@ -22,10 +23,23 @@ class WeatherViewModel {
         var wind_speed_10m: Double
     }
     
+    struct Daily: Codable {
+        var time: [String]
+        var weather_code: [Int]
+        var temperature_2m_max: [Double]
+        var temperature_2m_min: [Double]
+        var precipitation_sum: [Double]
+    }
+    
     var temperature: Double = 0.0
     var feelsLike: Double = 0.0
     var windSpeed: Double = 0.0
     var weatherCode: Int = 0
+    var date: [String] = []
+    var dailyWeatherCode: [Int] = []
+    var dailyHighTemp: [Double] = []
+    var dailyLowTemp: [Double] = []
+    var dailyPrecipitation: [Double] = []
     
     var urlString: String = "https://api.open-meteo.com/v1/forecast?latitude=43.4254&longitude=-80.5112&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum&hourly=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m,uv_index&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch&timezone=auto"
     var latitude: Double = 0.0
@@ -47,14 +61,19 @@ class WeatherViewModel {
                 print("😡 ERROR: Could not decode JSON data from \(urlString)")
                 return
             }
-            Task { @MainActor in
+
                 print("🎉 We got the temperature: \(decodedData.current.temperature_2m)")
+                print("🎉 We got the daily max temperatures: \(decodedData.daily.temperature_2m_max)")
                 self.temperature = decodedData.current.temperature_2m
                 self.feelsLike = decodedData.current.apparent_temperature
                 self.windSpeed = decodedData.current.wind_speed_10m
                 self.weatherCode = decodedData.current.weather_code
-                
-            }
+                self.date = decodedData.daily.time
+                self.dailyHighTemp = decodedData.daily.temperature_2m_max
+                self.dailyLowTemp = decodedData.daily.temperature_2m_min
+                self.dailyPrecipitation = decodedData.daily.precipitation_sum
+
+            
         } catch {
             print("😡 ERROR: Could not load data from \(urlString): \(error.localizedDescription)")
         }

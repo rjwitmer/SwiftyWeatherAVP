@@ -32,6 +32,22 @@ struct WeatherView: View {
                     Text("Wind: \(weatherVM.windSpeed.formatted(.number))mph - Feels Like: \(weatherVM.feelsLike.formatted(.number))\(degreeUnit)")
                         .font(.title2)
                         .padding(.bottom)
+
+                    List(0..<weatherVM.date.count, id: \.self) { index in
+                            HStack {
+//                                Text("\(weatherVM.dailyWeatherCode[index])")
+                                Image(systemName: "cloud.sun.fill")
+                                    .padding(.horizontal)
+                                    .symbolRenderingMode(.multicolor)
+//                                Image(systemName: weatherVM.getWeatherIcon(for: weatherVM.dailyWeatherCode[index]))
+                                Text("\(weatherVM.date[index])")
+                                Spacer()
+//                                Text("\(weatherVM.dailyHigh[index])")
+//                                Text("\(weatherVM.dailyHigh[index].formatted(.number))\(degreeUnit)/\(weatherVM.dailyLow[index].formatted(.number))\(degreeUnit)")
+                            }
+                        }
+
+                    
                 }
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
