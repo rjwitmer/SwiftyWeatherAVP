@@ -61,18 +61,19 @@ class WeatherViewModel {
                 print("😡 ERROR: Could not decode JSON data from \(urlString)")
                 return
             }
-
-                print("🎉 We got the temperature: \(decodedData.current.temperature_2m)")
-                print("🎉 We got the daily max temperatures: \(decodedData.daily.temperature_2m_max)")
-                self.temperature = decodedData.current.temperature_2m
-                self.feelsLike = decodedData.current.apparent_temperature
-                self.windSpeed = decodedData.current.wind_speed_10m
-                self.weatherCode = decodedData.current.weather_code
-                self.date = decodedData.daily.time
-                self.dailyHighTemp = decodedData.daily.temperature_2m_max
-                self.dailyLowTemp = decodedData.daily.temperature_2m_min
-                self.dailyPrecipitation = decodedData.daily.precipitation_sum
-
+            
+            print("🎉 We got the temperature: \(decodedData.current.temperature_2m)")
+            print("🎉 We got the daily max temperatures: \(decodedData.daily.temperature_2m_max)")
+            self.temperature = decodedData.current.temperature_2m
+            self.feelsLike = decodedData.current.apparent_temperature
+            self.windSpeed = decodedData.current.wind_speed_10m
+            self.weatherCode = decodedData.current.weather_code
+            self.date = decodedData.daily.time
+            self.dailyWeatherCode = decodedData.daily.weather_code
+            self.dailyHighTemp = decodedData.daily.temperature_2m_max
+            self.dailyLowTemp = decodedData.daily.temperature_2m_min
+            self.dailyPrecipitation = decodedData.daily.precipitation_sum
+            
             
         } catch {
             print("😡 ERROR: Could not load data from \(urlString): \(error.localizedDescription)")
@@ -83,6 +84,17 @@ class WeatherViewModel {
 }
 
 extension WeatherViewModel {
+    
+    func getWeekDay(value: Int) -> String {
+        // Increase date by 'value' days
+        let date = Calendar.current.date(byAdding: .day, value: value, to: Date.now)!
+        // Find the day number (1 = Sunday ... 7 = Saturday)
+        let dayNumber = Calendar.current.component(.weekday, from: date)
+        let weekDay = Calendar.current.weekdaySymbols[dayNumber - 1]    // the array is zero indexed to remove 1
+        return weekDay
+
+    }
+    
     func getWeatherDescription(for code: Int) -> String {
         switch code {
         case 0:
@@ -495,5 +507,5 @@ extension WeatherViewModel {
             return "questionmark.circle.fill" // Unknown code
         }
     }
-
+    
 }

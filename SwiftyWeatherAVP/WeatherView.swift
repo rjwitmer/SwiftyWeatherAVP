@@ -13,12 +13,12 @@ struct WeatherView: View {
     @State var weatherVM: WeatherViewModel = WeatherViewModel()
     @State private var degreeUnit: String = "°F"
     var body: some View {
-        NavigationStack {
+        NavigationStack{
             ZStack {
                 Color(.cyan.opacity(0.75))
                     .ignoresSafeArea()
                 
-                VStack(spacing: 0) {
+                VStack {
                     Image(systemName: weatherVM.getWeatherIcon(for: weatherVM.weatherCode))
                         .resizable()
                         .scaledToFit()
@@ -32,22 +32,25 @@ struct WeatherView: View {
                     Text("Wind: \(weatherVM.windSpeed.formatted(.number))mph - Feels Like: \(weatherVM.feelsLike.formatted(.number))\(degreeUnit)")
                         .font(.title2)
                         .padding(.bottom)
-
-                    List(0..<weatherVM.date.count, id: \.self) { index in
-                            HStack {
-//                                Text("\(weatherVM.dailyWeatherCode[index])")
-                                Image(systemName: "cloud.sun.fill")
-                                    .padding(.horizontal)
-                                    .symbolRenderingMode(.multicolor)
-//                                Image(systemName: weatherVM.getWeatherIcon(for: weatherVM.dailyWeatherCode[index]))
-                                Text("\(weatherVM.date[index])")
-                                Spacer()
-//                                Text("\(weatherVM.dailyHigh[index])")
-//                                Text("\(weatherVM.dailyHigh[index].formatted(.number))\(degreeUnit)/\(weatherVM.dailyLow[index].formatted(.number))\(degreeUnit)")
-                            }
-                        }
-
                     
+                    List(0..<weatherVM.date.count, id: \.self) { myIndex in
+                        HStack(alignment: .top) {
+                            Image(systemName: weatherVM.getWeatherIcon(for: weatherVM.dailyWeatherCode[myIndex]))
+                                .padding(.horizontal)
+                                .symbolRenderingMode(.multicolor)
+                            Text("\(weatherVM.getWeekDay(value: myIndex + 1))") // Start one day in the future
+//                            Text("\(weatherVM.date[myIndex])")
+                            Spacer()
+                            Text("High: \(weatherVM.dailyHighTemp[myIndex].formatted(.number))\(degreeUnit)")
+                            Text("/")
+                            Text("Low: \(weatherVM.dailyLowTemp[myIndex].formatted(.number))\(degreeUnit)")
+                        }
+                        
+                    }
+                    .listStyle(.plain)
+                    .listRowBackground(Color.clear)
+                    .font(.title2)
+
                 }
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
