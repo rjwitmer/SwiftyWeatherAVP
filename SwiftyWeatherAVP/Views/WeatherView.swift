@@ -12,6 +12,8 @@ import RealityKitContent
 struct WeatherView: View {
     @State var weatherVM: WeatherViewModel = WeatherViewModel()
     @State private var degreeUnit: String = "°F"
+    
+    
     var body: some View {
         NavigationStack{
             ZStack {
@@ -45,11 +47,11 @@ struct WeatherView: View {
                             Text("/")
                             Text("Low: \(weatherVM.dailyLowTemp[myIndex].formatted(.number))\(degreeUnit)")
                         }
+                        .listRowBackground(Color.clear)
+                        .font(.title2)
                         
                     }
                     .listStyle(.plain)
-                    .listRowBackground(Color.clear)
-                    .font(.title2)
 
                 }
                 .toolbar {

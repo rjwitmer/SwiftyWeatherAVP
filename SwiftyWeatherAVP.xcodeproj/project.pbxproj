@@ -12,6 +12,8 @@
 		CC381CBC2E6FADD200F8E864 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC381CB92E6FADD200F8E864 /* WeatherView.swift */; };
 		CC381CBD2E6FADD200F8E864 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC381CB62E6FADD200F8E864 /* Assets.xcassets */; };
 		CC381CC02E6FB75E00F8E864 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC381CBF2E6FB75E00F8E864 /* WeatherViewModel.swift */; };
+		CC4FB3282E7316FA00127DB3 /* PreferenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4FB3272E7316FA00127DB3 /* PreferenceView.swift */; };
+		CC4FB32B2E73224700127DB3 /* UnitSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4FB32A2E73224700127DB3 /* UnitSystem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		CC381CB82E6FADD200F8E864 /* SwiftyWeatherAVPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyWeatherAVPApp.swift; sourceTree = "<group>"; };
 		CC381CB92E6FADD200F8E864 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		CC381CBF2E6FB75E00F8E864 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
+		CC4FB3272E7316FA00127DB3 /* PreferenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceView.swift; sourceTree = "<group>"; };
+		CC4FB32A2E73224700127DB3 /* UnitSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitSystem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +69,8 @@
 			isa = PBXGroup;
 			children = (
 				CC381CB82E6FADD200F8E864 /* SwiftyWeatherAVPApp.swift */,
-				CC381CB92E6FADD200F8E864 /* WeatherView.swift */,
+				CC4FB32C2E73227100127DB3 /* Types */,
+				CC4FB3292E73170D00127DB3 /* Views */,
 				CC381CC12E6FB76D00F8E864 /* ViewModels */,
 				CC381CB62E6FADD200F8E864 /* Assets.xcassets */,
 				CC381CB72E6FADD200F8E864 /* Info.plist */,
@@ -79,6 +84,23 @@
 				CC381CBF2E6FB75E00F8E864 /* WeatherViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CC4FB3292E73170D00127DB3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CC381CB92E6FADD200F8E864 /* WeatherView.swift */,
+				CC4FB3272E7316FA00127DB3 /* PreferenceView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CC4FB32C2E73227100127DB3 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				CC4FB32A2E73224700127DB3 /* UnitSystem.swift */,
+			);
+			path = Types;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,7 +177,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC381CBB2E6FADD200F8E864 /* SwiftyWeatherAVPApp.swift in Sources */,
+				CC4FB3282E7316FA00127DB3 /* PreferenceView.swift in Sources */,
 				CC381CC02E6FB75E00F8E864 /* WeatherViewModel.swift in Sources */,
+				CC4FB32B2E73224700127DB3 /* UnitSystem.swift in Sources */,
 				CC381CBC2E6FADD200F8E864 /* WeatherView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
