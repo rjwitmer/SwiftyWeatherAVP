@@ -8,10 +8,15 @@
 import SwiftUI
 import RealityKit
 import RealityKitContent
+import SwiftData
 
 struct WeatherView: View {
+    @Environment(\.modelContext) var modelContext
+    @Query var currentLocation: [Preference]
+    //TODO: Finish the data load to load the user preferences
     @State var weatherVM: WeatherViewModel = WeatherViewModel()
     @State private var degreeUnit: String = "°F"
+    @State private var sheetIsPresented: Bool = false
     
     
     var body: some View {
@@ -57,7 +62,8 @@ struct WeatherView: View {
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
-                            //TODO: Add gear click action here
+                            sheetIsPresented.toggle()
+
                         } label: {
                             Image(systemName: "gear")
                         }
@@ -68,6 +74,9 @@ struct WeatherView: View {
         }
         .task {
             await weatherVM.getData()
+        }
+        .fullScreenCover(isPresented: $sheetIsPresented) {
+            PreferenceView()
         }
     }
 }
