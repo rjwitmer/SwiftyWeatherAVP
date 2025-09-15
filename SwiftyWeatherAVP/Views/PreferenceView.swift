@@ -14,10 +14,12 @@ struct PreferenceView: View {
     @Environment(\.dismiss) var dismiss
     
     @Query var preferences: [Preference]
-    
-    @State private var locationName: String = "Kitchener"
-    @State private var latString: String = "43.4254"
-    @State private var longString: String = "-80.5112"
+    @State private var locationName: String = ""
+    @State private var latString: String = ""
+    @State private var longString: String = ""
+//    locationName: String = "Kitchener"
+//    latString: String = "43.4254"
+//    longString: String = "-80.5112"
     @State private var selectedUnit: UnitSystem = UnitSystem.imperial
     @State private var degreeUnitShowing: Bool = true
     var degreeUnit: String {
